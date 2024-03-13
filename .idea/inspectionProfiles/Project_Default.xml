@@ -1,0 +1,41 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N802" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="tender_app.models.Bundle.objects" />
+          <option value="tender_app.models.Subsection.objects" />
+          <option value="tender_app.models.Section.objects" />
+          <option value="tender_app.models.Worker.objects" />
+          <option value="blogapp.models.Flower.objects" />
+          <option value="apps.tournaments.models.Tournament.objects" />
+          <option value="examapp.models.Variant.objects" />
+          <option value="examapp.models.Question.objects" />
+          <option value="blogapp.models.FlowerType.objects" />
+          <option value="blogapp.models.Bouquet.objects" />
+          <option value="blogapp.models.Music.objects" />
+          <option value="store.models.Customer.objects" />
+          <option value="store.models.Customer.DoesNotExist" />
+          <option value="store.models.Category.objects" />
+          <option value="store.models.Product.objects" />
+          <option value="category_app.models.Category.objects" />
+          <option value="article_app.models.Article.objects" />
+          <option value="mailapp.models.Mail.objects" />
+          <option value="mailapp.models.Attachment.objects" />
+          <option value="first_app.models.Category.objects" />
+          <option value="first_app.models.Brand.objects" />
+          <option value="first_app.models.Product.*" />
+          <option value="first_app.models.Color.*" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
