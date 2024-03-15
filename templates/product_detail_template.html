@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Detail</title>
+</head>
+<body>
+    <h1>{{ product.name }}</h1>
+    {% if user.is_staff %}
+        <a href="{% url 'product_delete_url' product.id %}">
+            Delete This Product
+        </a>
+    {% endif %}
+</body>
+</html>

@@ -52,3 +52,42 @@ def registerView(request):
         user = CustomUser.objects.create_user(email=input_email, password=input_pass1)
         login(request, user)
         return redirect('home_url')
+
+
+def productCreateView(request):
+    if request.method == 'GET':
+        return render(request, 'product_create_template.html')
+    elif request.method == 'POST':
+        from .models import Product
+        product_name = request.POST.get('product_name').capitalize()
+        product_price = float(request.POST.get('product_price'))
+        product_color = request.POST.get('product_color').capitalize()
+        product_quantity = request.POST.get('product_quantity')
+        if product_quantity:
+            product_quantity = int(product_quantity)
+            new_product = Product(name=product_name,
+                                  price=product_price,
+                                  color=product_color,
+                                  quantity=product_quantity)
+        else:
+            new_product = Product(name=product_name,
+                                  price=product_price,
+                                  color=product_color)
+        new_product.save()
+        return redirect('home_url')
+
+
+def productDetailView(request, product_id):
+    from .models import Product
+    product = Product.objects.get(id=product_id)
+    context = {
+        'product': product
+    }
+    return render(request, 'product_detail_template.html', context=context)
+
+
+def productDeleteView(request, product_id):
+    from .models import Product
+    product = Product.objects.get(id=product_id)
+    product.delete()
+    return redirect('home_url')
