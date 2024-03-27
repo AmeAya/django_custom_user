@@ -1,10 +1,24 @@
 from django.shortcuts import render
 from django.contrib.auth import logout, login, authenticate
 from django.shortcuts import redirect
+import requests
+import json
 
 
 def homeView(request):
-    return render(request, 'home_template.html')
+    print(request.META.get('REMOTE_ADDR'))
+
+    import os
+    from dotenv import load_dotenv
+    load_dotenv()
+    api_key = os.environ.get('WEATHER_API_KEY')
+    url = f"http://api.weatherapi.com/v1/current.json?key={api_key}&q=Almaty"
+    response = requests.get(url)
+    context = {}
+    if response.status_code == 200:
+        data = json.loads(response.text)
+        context.update({'temp': data['current']['temp_c']})
+    return render(request, 'home_template.html', context=context)
 
 
 def logOutView(request):

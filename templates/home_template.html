@@ -7,6 +7,8 @@
 <body>
     <h1 align="center">Welcome!</h1>
 
+    <h3>Temperature in Almaty: {{ temp }}°C</h3>
+
     {% if user.is_authenticated %}
         <h3>Hello {{ user.email }}</h3>
         <a href="{% url 'log_out_url' %}">Log Out</a>
